@@ -36,10 +36,10 @@ def main():
         real_estate_types=REAL_ESTATE_TYPES, 
         regions=REGIONS, 
         main_page=MAIN_PAGE)    
-    pages = processor.get_pages(url_bases)    
+    pages = processor.get_pages(url_bases, PAGES_DIRECTORY)    
     processor.download_pages(pages, PAGES_DIRECTORY)
 
-    ads = processor.get_ads_from_pages(pages)
+    ads = processor.get_ads_from_pages(pages, PAGES_DIRECTORY)
     processor.write_ads_to_csv(ads, DATA_DIRECTORY, DATA_FILENAME)
 
 

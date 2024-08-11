@@ -42,13 +42,13 @@ def get_url_bases(ad_types, real_estate_types, regions, main_page):
     return url_bases
 
 
-def get_pages(url_bases):
+def get_pages(url_bases, directory):
     """The function takes base links as an argument 
     and returns all links to all pages with the given parameters."""
     pages_to_download = set()
 
     for url_base in url_bases:
-        number_of_pages = parser.get_number_of_pages(url_base)        
+        number_of_pages = parser.get_number_of_pages(url_base, directory)        
         for number in range(1, number_of_pages + 1):
             page_to_download = f'{url_base}{number}/'
             pages_to_download.add(page_to_download)       
@@ -66,12 +66,13 @@ def download_pages(pages, directory):
             collector.save_page_to_file(page, directory, filename)
 
 
-def get_ads_from_pages(pages):
-    """The function takes pages with ads as an argument and returns a list of ads."""
+def get_ads_from_pages(pages, directory):
+    """The function reads the data in pages and
+    converts (parses) it into the corresponding dictionary list for each ad."""
     ads = []
     for page in pages:
         filename = get_filename(page)
-        ads.extend(parser.get_ads(filename))
+        ads.extend(parser.get_ads(filename, directory))
     return ads
 
     
