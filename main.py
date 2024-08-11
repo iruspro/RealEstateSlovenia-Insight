@@ -30,7 +30,9 @@ REGIONS = [
 
 
 def main():
-    collector.save_page_to_file(MAIN_PAGE, 'pages', 'main_page')
+    pages_to_download = processor.get_pages_to_download(ad_types=AD_TYPES, real_estate_types=REAL_ESTATE_TYPES, regions=REGIONS, main_page=MAIN_PAGE)    
+    print(pages_to_download, len(pages_to_download))
+
 
 if __name__ == '__main__':
     main()
