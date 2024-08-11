@@ -35,5 +35,9 @@ def main():
         main_page=MAIN_PAGE)
     
     page_links = processor.get_page_links(url_bases)
+    
+    processor.download_pages(page_links)
+
+
 if __name__ == '__main__':
     main()

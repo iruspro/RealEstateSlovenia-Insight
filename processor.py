@@ -1,4 +1,9 @@
 import parser
+import os
+import collector
+
+
+DIRECTORY = 'pages'
 
 
 # Key functions
@@ -23,3 +28,20 @@ def get_page_links(url_bases):
             page_to_download = f'{url_base}{number}/'
             pages_to_download.add(page_to_download)       
     return pages_to_download
+
+def download_pages(page_links): 
+    for page_link in page_links:
+        filename = parser.get_filename(page_link)
+
+        if is_downloaded(filename):
+            continue
+        else:
+            collector.save_page_to_file(page_link, DIRECTORY, filename)
+
+
+def is_downloaded(filename):
+    filepath = os.path.join(DIRECTORY, filename)
+    if os.path.exists(filepath):
+        return True
+    else:
+        return False
