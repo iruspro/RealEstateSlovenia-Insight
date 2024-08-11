@@ -37,6 +37,7 @@ def main():
     processor.download_pages(pages)
 
     ads = processor.get_ads_from_pages(pages)
+    processor.write_ads_to_csv(ads, 'data', 'ads.csv')
 
 
 if __name__ == '__main__':

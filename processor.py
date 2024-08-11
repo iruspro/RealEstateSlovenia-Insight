@@ -1,6 +1,7 @@
 import parser
 import os
 import collector
+import csv
 
 
 DIRECTORY = 'pages'
@@ -53,4 +54,17 @@ def get_ads_from_pages(pages):
         filename = parser.get_filename(page)
         ads.extend(parser.get_ads(filename))
     return ads
+
+def write_ads_to_csv(ads, directory, csv_filename):
+    fieldnames = list(ads[0].keys())
+    write_csv(fieldnames, ads, directory, csv_filename)
+    
+def write_csv(fieldnames, rows, directory, filename):
+    os.makedirs(directory, exist_ok=True)
+    path = os.path.join(directory, filename)
+    with open(path, 'w', encoding='utf-8') as csv_file:
+        writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
+        writer.writeheader()
+        for row in rows:
+            writer.writerow(row)
 
