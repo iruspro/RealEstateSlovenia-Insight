@@ -1,6 +1,7 @@
 import re
 import collector
 import os
+import processor
 
 
 DIRECTORY = 'pages'
@@ -24,7 +25,10 @@ def get_filename(url):
 # Main functions
 def get_number_of_pages(url_base):
     filename = get_filename(url_base) + '_1'
-    collector.save_page_to_file(url_base, directory=DIRECTORY, filename=filename)
+
+    if not processor.is_downloaded(filename):
+        collector.save_page_to_file(url_base, directory=DIRECTORY, filename=filename)
+        
     text = read_file_to_string(directory=DIRECTORY, filename=filename)
     number_of_pages = get_number_of_pages_from_text(text)
     return number_of_pages
