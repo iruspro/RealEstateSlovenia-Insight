@@ -1,6 +1,10 @@
-import collector
+import parser
 
 
+DIRECTORY = 'pages'
+
+
+# Key functions
 def get_url_base(ad_type, real_estate_type, region, main_page):
     return f'{main_page}oglasi-{ad_type}/{region}/{real_estate_type}/'
 
@@ -10,7 +14,7 @@ def get_url_bases(ad_types, real_estate_types, regions, main_page):
         for real_estate_type in real_estate_types:
             for region in regions:
                 url_base = get_url_base(ad_type, real_estate_type, region, main_page)
-                url_bases.add(first_page)
+                url_bases.add(url_base)
     return url_bases
 
 def get_number_of_pages(first_page):
