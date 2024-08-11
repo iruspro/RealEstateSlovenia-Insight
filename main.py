@@ -38,6 +38,8 @@ def main():
     
     processor.download_pages(page_links)
 
+    ads = processor.get_ads(page_links)
+
 
 if __name__ == '__main__':
     main()

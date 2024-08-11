@@ -27,9 +27,9 @@ def get_number_of_pages(url_base):
     filename = get_filename(url_base) + '_1'
 
     if not processor.is_downloaded(filename):
-        collector.save_page_to_file(url_base, directory=DIRECTORY, filename=filename)
-        
-    text = read_file_to_string(directory=DIRECTORY, filename=filename)
+        collector.save_page_to_file(url_base, DIRECTORY, ilename)
+
+    text = read_file_to_string(DIRECTORY, filename)
     number_of_pages = get_number_of_pages_from_text(text)
     return number_of_pages
     
@@ -42,3 +42,9 @@ def get_number_of_pages_from_text(text):
         return int(number_of_pages.group(1).split('/')[4])
     else:
         return 1
+
+def get_ads(filename):
+    text = read_file_to_string(DIRECTORY, filename)
+    ad_template = r'<div class="property-details" data-href=".*?">.*?<img class=.*?/>\s*?</div>\s*</div>'
+    ads = re.findall(ad_template, text, re.DOTALL)
+    return ads

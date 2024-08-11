@@ -45,3 +45,13 @@ def is_downloaded(filename):
         return True
     else:
         return False
+
+def get_ads(page_links):
+    ads = []
+
+    for page_link in page_links:
+        filename = parser.get_filename(page_link)
+        ads.extend(parser.get_ads(filename))
+
+    return ads
+
