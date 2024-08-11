@@ -14,7 +14,7 @@ def get_url_bases(ad_types, real_estate_types, regions, main_page):
                 url_bases.add(url_base)
     return url_bases
 
-def get_pages_to_download(url_bases):
+def get_page_links(url_bases):
     pages_to_download = set()
 
     for url_base in url_bases:

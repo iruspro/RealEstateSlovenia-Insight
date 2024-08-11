@@ -36,6 +36,6 @@ def main():
         regions=REGIONS, 
         main_page=MAIN_PAGE)
     
-    pages_to_download = processor.get_pages_to_download(url_bases)
+    page_links = processor.get_page_links(url_bases)
 if __name__ == '__main__':
     main()
