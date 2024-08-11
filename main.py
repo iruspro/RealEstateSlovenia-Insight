@@ -35,7 +35,7 @@ def main():
         real_estate_types=REAL_ESTATE_TYPES, 
         regions=REGIONS, 
         main_page=MAIN_PAGE)
-
-
+    
+    pages_to_download = processor.get_pages_to_download(url_bases)
 if __name__ == '__main__':
     main()
