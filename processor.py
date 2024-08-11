@@ -1,9 +1,6 @@
 import parser
 
 
-DIRECTORY = 'pages'
-
-
 # Key functions
 def get_url_base(ad_type, real_estate_type, region, main_page):
     return f'{main_page}oglasi-{ad_type}/{region}/{real_estate_type}/'
