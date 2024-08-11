@@ -25,6 +25,9 @@ REGIONS = [
     'pomurska',
     ]
 MAIN_PAGE = 'https://www.nepremicnine.net/'
+PAGES_DIRECTORY = 'pages'
+DATA_DIRECTORY = 'data'
+DATA_FILENAME = 'ads.csv'
 
 
 def main():
@@ -34,10 +37,10 @@ def main():
         regions=REGIONS, 
         main_page=MAIN_PAGE)    
     pages = processor.get_pages(url_bases)    
-    processor.download_pages(pages)
+    processor.download_pages(pages, PAGES_DIRECTORY)
 
     ads = processor.get_ads_from_pages(pages)
-    processor.write_ads_to_csv(ads, 'data', 'ads.csv')
+    processor.write_ads_to_csv(ads, DATA_DIRECTORY, DATA_FILENAME)
 
 
 if __name__ == '__main__':

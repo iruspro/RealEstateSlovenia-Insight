@@ -14,8 +14,7 @@ def download_url_to_string(url):
     try:
         page_content = requests.get(url, headers=HEADERS)        
     except requests.exceptions.RequestException:
-        return None
-    
+        return None    
     return page_content.text
 
 
