@@ -3,10 +3,30 @@ import processor
 import analyser
 
 
-AD_TYPES = ['prodaja', 'oddaja']
-REAL_ESTATE_TYPES = ['stanovanje', 'hisa']
+AD_TYPES = [
+    'prodaja', 
+    'oddaja',
+    ]
+REAL_ESTATE_TYPES = [
+    'stanovanje', 
+    'hisa',
+    ]
 MAIN_PAGE = 'https://www.nepremicnine.net/'
-REGIONS = ['LJ-mesto', 'LJ-okolica', 'Gorenjska', 'J. Primorska', 'S.Primorska', 'Notranjska', 'Savinjska', 'Podravska', 'Koroška', 'Dolenjska', 'Posavska', 'Zasavska', 'Pomurska']
+REGIONS = [
+    'ljubljana-mesto', 
+    'ljubljana-okolica', 
+    'gorenjska', 
+    'juzna-primorska', 
+    'severna-primorska', 
+    'notranjska', 
+    'savinjska', 
+    'podravska', 
+    'koroška', 
+    'dolenjska', 
+    'posavska', 
+    'zasavska', 
+    'pomurska',
+    ]
 
 
 def main():
