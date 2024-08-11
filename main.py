@@ -1,6 +1,4 @@
-import collector
 import processor
-import analyser
 
 
 AD_TYPES = [
