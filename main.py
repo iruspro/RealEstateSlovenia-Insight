@@ -32,13 +32,11 @@ def main():
         ad_types=AD_TYPES, 
         real_estate_types=REAL_ESTATE_TYPES, 
         regions=REGIONS, 
-        main_page=MAIN_PAGE)
-    
-    page_links = processor.get_page_links(url_bases)
-    
-    processor.download_pages(page_links)
+        main_page=MAIN_PAGE)    
+    pages = processor.get_pages(url_bases)    
+    processor.download_pages(pages)
 
-    ads = processor.get_ads(page_links)
+    ads = processor.get_ads_from_pages(pages)
 
 
 if __name__ == '__main__':

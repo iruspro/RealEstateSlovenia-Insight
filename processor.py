@@ -19,7 +19,7 @@ def get_url_bases(ad_types, real_estate_types, regions, main_page):
                 url_bases.add(url_base)
     return url_bases
 
-def get_page_links(url_bases):
+def get_pages(url_bases):
     pages_to_download = set()
 
     for url_base in url_bases:
@@ -46,12 +46,11 @@ def is_downloaded(filename):
     else:
         return False
 
-def get_ads(page_links):
+def get_ads_from_pages(pages):
     ads = []
 
-    for page_link in page_links:
-        filename = parser.get_filename(page_link)
+    for page in pages:
+        filename = parser.get_filename(page)
         ads.extend(parser.get_ads(filename))
-
     return ads
 
