@@ -21,7 +21,7 @@ REGIONS = [
     'notranjska', 
     'savinjska', 
     'podravska', 
-    'koroška', 
+    'koroska', 
     'dolenjska', 
     'posavska', 
     'zasavska', 
