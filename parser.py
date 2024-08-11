@@ -27,7 +27,7 @@ def get_number_of_pages(url_base):
     filename = get_filename(url_base) + '_1'
 
     if not processor.is_downloaded(filename):
-        collector.save_page_to_file(url_base, DIRECTORY, ilename)
+        collector.save_page_to_file(url_base, DIRECTORY, filename)
 
     text = read_file_to_string(DIRECTORY, filename)
     number_of_pages = get_number_of_pages_from_text(text)
