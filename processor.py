@@ -1,17 +1,17 @@
 import collector
 
 
-def get_first_page(ad_type, real_estate_type, region, main_page):
+def get_url_base(ad_type, real_estate_type, region, main_page):
     return f'{main_page}oglasi-{ad_type}/{region}/{real_estate_type}/'
 
-def get_first_pages(ad_types, real_estate_types, regions, main_page):
-    first_pages = set()
+def get_url_bases(ad_types, real_estate_types, regions, main_page):
+    url_bases = set()
     for ad_type in ad_types:
         for real_estate_type in real_estate_types:
             for region in regions:
-                first_page = get_first_page(ad_type, real_estate_type, region, main_page)
-                first_pages.add(first_page)
-    return first_pages
+                url_base = get_url_base(ad_type, real_estate_type, region, main_page)
+                url_bases.add(first_page)
+    return url_bases
 
 def get_number_of_pages(first_page):
     filename = get_filename(first_page)
