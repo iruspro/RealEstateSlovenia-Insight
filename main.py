@@ -30,8 +30,11 @@ REGIONS = [
 
 
 def main():
-    pages_to_download = processor.get_pages_to_download(ad_types=AD_TYPES, real_estate_types=REAL_ESTATE_TYPES, regions=REGIONS, main_page=MAIN_PAGE)    
-    print(pages_to_download, len(pages_to_download))
+    url_bases = processor.get_url_bases(
+        ad_types=AD_TYPES, 
+        real_estate_types=REAL_ESTATE_TYPES, 
+        regions=REGIONS, 
+        main_page=MAIN_PAGE)
 
 
 if __name__ == '__main__':
