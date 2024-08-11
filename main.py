@@ -9,7 +9,6 @@ REAL_ESTATE_TYPES = [
     'stanovanje', 
     'hisa',
     ]
-MAIN_PAGE = 'https://www.nepremicnine.net/'
 REGIONS = [
     'ljubljana-mesto', 
     'ljubljana-okolica', 
@@ -25,6 +24,7 @@ REGIONS = [
     'zasavska', 
     'pomurska',
     ]
+MAIN_PAGE = 'https://www.nepremicnine.net/'
 
 
 def main():
