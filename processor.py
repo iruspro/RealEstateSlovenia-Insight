@@ -75,7 +75,18 @@ def get_ads_from_pages(pages, directory):
         ads.extend(parser.get_ads(filename, directory))
     return ads
 
+
+def write_ads_to_csv(ads, directory, csv_filename):
+    """The function writes all data from the "ads" parameter to the csv file given by
+    by the "directory"/"filename" parameters. The function assumes that the keys of all
+    dictionary keys of the ads parameter are the same and the ads list is non-empty."""
+    assert ads and (all(j.keys() == ads[0].keys() for j in ads))
+
+    fieldnames = list(ads[0].keys())
     
+    write_csv(fieldnames, ads, directory, csv_filename)
+
+
 def write_csv(fieldnames, rows, directory, filename):
     """The function writes to the csv file given by the parameters "directory"/"filename"
     the values in the "rows" parameter corresponding to the keys given in "fieldnames"."""
@@ -89,12 +100,39 @@ def write_csv(fieldnames, rows, directory, filename):
             writer.writerow(row)
 
 
-def write_ads_to_csv(ads, directory, csv_filename):
-    """The function writes all data from the "ads" parameter to the csv file given by
-    by the "directory"/"filename" parameters. The function assumes that the keys of all
-    dictionary keys of the ads parameter are the same and the ads list is non-empty."""
-    assert ads and (all(j.keys() == ads[0].keys() for j in ads))
-
-    fieldnames = list(ads[0].keys())
+def get_true_ads_from_ads(ads, directory, filename):
+    """The function as an argument takes a list of all ads and 
+    the location of the file given by the parameters "directory"/"filename"
+    with id of fake ads and returns a list of only real ads."""
+    true_ads = []
     
-    write_csv(fieldnames, ads, directory, csv_filename)
+    id_of_fake_ads = get_id_of_fake_ads(directory, filename)
+
+    for ad in ads:
+        if not ad['id'] in id_of_fake_ads:
+            true_ads.append(ad)
+
+    return true_ads 
+
+
+def get_id_of_fake_ads(directory, filename):
+    """The function as an argument takes the location of the file 
+    given by the parameters "directory"/"filename"
+    with id of fake ads and returns a set of id of fake ads."""
+    id_of_fake_ads = set()
+    
+    path = os.path.join(directory, filename)    
+    with open(path, 'r', encoding='utf-8') as file:
+        for id_of_fake_ad in file:
+            id_of_fake_ads.add(id_of_fake_ad.strip())
+    
+    return id_of_fake_ads
+
+
+def is_fake_ad(ad_id, id_of_fake_ads):
+    """The function takes as an argument the id of the ad and the set of id of 
+    all fake ads and returns True if the ad is fake and False otherwise."""
+    if ad_id in id_of_fake_ads:
+        return True
+    else:
+        return False
