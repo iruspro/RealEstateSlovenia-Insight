@@ -28,6 +28,7 @@ MAIN_PAGE = 'https://www.nepremicnine.net/'
 PAGES_DIRECTORY = 'pages'
 DATA_DIRECTORY = 'data'
 DATA_FILENAME = 'ads.csv'
+FAKE_ADS_FILENAME = 'fake_ads'
 
 
 def main():
@@ -40,7 +41,8 @@ def main():
     processor.download_pages(pages, PAGES_DIRECTORY)
 
     ads = processor.get_ads_from_pages(pages, PAGES_DIRECTORY)
-    processor.write_ads_to_csv(ads, DATA_DIRECTORY, DATA_FILENAME)
+    true_ads = processor.get_true_ads_from_ads(ads, DATA_DIRECTORY, FAKE_ADS_FILENAME)
+    processor.write_ads_to_csv(true_ads, DATA_DIRECTORY, DATA_FILENAME)
 
 
 if __name__ == '__main__':
