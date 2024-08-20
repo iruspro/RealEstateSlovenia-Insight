@@ -16,6 +16,6 @@ Z uporabo knjižnice Pandas v programskem jeziku Python znotraj okolja Jupyter N
 8. Zaženite Jupyter Notebook: `jupyter notebook`
 9. V odprtem oknu brskalnika izberite datoteko `analysis.ipynb`
 10. Kliknite v zgornjem meniju na `Run -> Run All Cells`
-11. Uživajte v analizi.
+11. Uživajte v analizi
 
 Če želite znova prenesti podatke s spletne strani, izbrišite vsebino mape pages: `rm -rf pages/*` in zaženite program: `python3 main.py`
