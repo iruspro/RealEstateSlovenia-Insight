@@ -12,7 +12,7 @@ Z uporabo knjižnice Pandas v programskem jeziku Python znotraj okolja Jupyter N
 5. Ustvarite novo virtualno okolje: `python3 -m venv env`
 6. Aktivirajte virtualno okolje: `source env/bin/activate`
 6. Namestite potrebne pakete za delovanje programa: `pip install requests pandas seaborn numpy matplotlib notebook`
-7. Zaženite program: `python3 main.py`
+7. Zaženite program: `python3 main.py` (počakajte približno 3 minute)
 8. Zaženite Jupyter Notebook: `jupyter notebook`
 9. V odprtem oknu brskalnika izberite datoteko `analysis.ipynb`
 10. Kliknite v zgornjem meniju na `Run -> Run All Cells`
