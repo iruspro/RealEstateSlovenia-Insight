@@ -1,10 +1,8 @@
 # RealEstateSlovenia-Insight
-***
 Ta projekt si prizadeva zagotoviti poglobljeno analizo slovenskega nepremičninskega trga, s poudarkom na prodaji in dolgoročnem najemu. Podatki za to analizo so bili pridobljeni s spletnega mesta https://www.nepremicnine.net/, ki zajema širok spekter nepremičninskih oglasov.
 
 Z uporabo knjižnice Pandas v programskem jeziku Python znotraj okolja Jupyter Notebook bo projekt raziskal ključne tržne trende, cenovne vzorce in geografsko razporeditev nepremičnin. S pomočjo vizualizacije teh podatkov in izvedbe statističnih analiz bo projekt poskušal ponuditi dragocene vpoglede v dinamiko slovenskega nepremičninskega trga, kar bi lahko pomagalo kupcem, najemnikom in vlagateljem pri sprejemanju premišljenih odločitev.
 
-***
 # Navodila za uporabo [Linux]
 
 1. Preverite, ali imate nameščen Python: `python3 --version`
@@ -19,4 +17,5 @@ Z uporabo knjižnice Pandas v programskem jeziku Python znotraj okolja Jupyter N
 9. V odprtem oknu brskalnika izberite datoteko `analysis.ipynb`
 10. Kliknite v zgornjem meniju na `Run -> Run All Cells`
 11. Uživajte v analizi.
-12. Če želite znova prenesti podatke s spletne strani, izbrišite vsebino mape pages: `rm -rf pages/*` in zaženite program: `python3 main.py`
+
+Če želite znova prenesti podatke s spletne strani, izbrišite vsebino mape pages: `rm -rf pages/*` in zaženite program: `python3 main.py`
