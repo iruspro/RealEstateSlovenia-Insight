@@ -109,7 +109,7 @@ def get_true_ads_from_ads(ads, directory, filename):
     id_of_fake_ads = get_id_of_fake_ads(directory, filename)
 
     for ad in ads:
-        if not ad['id'] in id_of_fake_ads:
+        if not ad['ad_id'] in id_of_fake_ads:
             true_ads.append(ad)
 
     return true_ads 

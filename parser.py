@@ -87,7 +87,7 @@ def get_dict_from_ad_block(block):
     seller = get_seller_from_(block)    
 
     return {
-        'id': ad_id,
+        'ad_id': ad_id,
         'ad_type': base_data[0],
         'real_estate_type': base_data[2],
         'region': base_data[1],
@@ -157,7 +157,10 @@ def get_city_from_(block, region):
         template_city = r'<h2>(.*?)</h2>'
         city = re.search(template_city, block)
         if city:
-            return city.group(1).split(',')[0].lower()
+            city = city.group(1).split(',')[0].lower()
+            if city == 'mb - center':
+                return 'maribor'
+            return city
 
 
 def get_living_area_from_(block):
