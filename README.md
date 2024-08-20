@@ -3,7 +3,7 @@ Ta projekt si prizadeva zagotoviti poglobljeno analizo slovenskega nepremičnins
 
 Z uporabo knjižnice Pandas v programskem jeziku Python znotraj okolja Jupyter Notebook bo projekt raziskal ključne tržne trende, cenovne vzorce in geografsko razporeditev nepremičnin. S pomočjo vizualizacije teh podatkov in izvedbe statističnih analiz bo projekt poskušal ponuditi dragocene vpoglede v dinamiko slovenskega nepremičninskega trga, kar bi lahko pomagalo kupcem, najemnikom in vlagateljem pri sprejemanju premišljenih odločitev.
 
-# Navodila za uporabo [Linux]
+## Navodila za uporabo [Linux]
 
 1. Preverite, ali imate nameščen Python: `python3 --version`
 2. Preverite, ali imate nameščen Git: `git --version`
