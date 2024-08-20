@@ -6,7 +6,7 @@ import processor
 
 # Basic function
 def read_file_to_string(directory, filename):
-    """The function takes a directory and a file as an argument and returns the contents of the file as a string."""
+    """This function takes a directory and a file as an argument and returns the contents of the file as a string."""
     filepath = os.path.join(directory, filename)    
     with open(filepath, 'r', encoding='UTF-8') as file:
         text = file.read()
@@ -15,11 +15,11 @@ def read_file_to_string(directory, filename):
 
 # Main functions
 def get_number_of_pages(url_base, directory):
-    """The function takes as an argument the base link and 
+    """This function takes as an argument the base link and 
     the directory to save the base page and returns the number of pages with these parameters."""
     filename = processor.get_filename(url_base) + '_1'
 
-    if not processor.is_downloaded(filename, directory):
+    if not processor.is_downloaded(directory, filename):
         collector.save_page_to_file(url_base, directory, filename)
 
     text = read_file_to_string(directory, filename)
@@ -28,7 +28,7 @@ def get_number_of_pages(url_base, directory):
     
 
 def get_number_of_pages_from_text(text):
-    """The function takes text as an argument and extracts from it 
+    """This function takes text as an argument and extracts from it 
     the number of pages with the given parameters."""
     template_number_of_pages = r'<li class="paging_last"><a href=(.*?) class="last">>></a></li>'
     number_of_pages = re.search(template_number_of_pages, text)
@@ -40,7 +40,7 @@ def get_number_of_pages_from_text(text):
 
 
 def get_ads(filename, directory):
-    """The function takes as an argument the name of the file 
+    """This function takes as an argument the name of the file 
     and the directory where it is located and returns all the ads 
     located in this file as a list of dictionaries with the necessary data."""
     processed_ads = []    
@@ -63,7 +63,7 @@ def get_ads_from_text(text):
 
 
 def get_dict_from_ad_block(block):  
-    """The function extracts from ad block the ad id, ad type, region, 
+    """This function extracts from ad block the ad id, ad type, region, 
     real estate type (flat or house), type, land area, city, living area, building year, floor,
     price and seller and returns a dictionary containing the relevant data."""
     base_data = get_base_date_from_(block)  
@@ -103,7 +103,7 @@ def get_dict_from_ad_block(block):
 
 
 def get_base_date_from_(block):
-    """The function takes a block with an ad as an argument 
+    """This function takes a block with an ad as an argument 
     and returns basic data about it or None if there is no necessery data in the block."""
     template_base_data = r'<meta itemprop="category" content="(.*?)/>'
     base_data = re.search(template_base_data, block)
@@ -122,7 +122,7 @@ def get_base_date_from_(block):
 
 
 def get_ad_id_from_(block):
-    """The function takes a block with an ad as an argument 
+    """This function takes a block with an ad as an argument 
     and returns ad id or None if there is no ad id in the block."""
     template_id = r'<div class="property-details".*?_(.*?)/">'
     ad_id = re.search(template_id, block)
@@ -131,7 +131,7 @@ def get_ad_id_from_(block):
 
 
 def get_type_from_(block):
-    """The function takes a block with an ad as an argument 
+    """This function takes a block with an ad as an argument 
     and returns type or None if there is no type in the block."""
     template_type = r'<span class="tipi">(.*?)</span>'
     type_ = re.search(template_type, block)
@@ -140,7 +140,7 @@ def get_type_from_(block):
 
 
 def get_land_area_from_(block):
-    """The function takes a block with an ad as an argument 
+    """This function takes a block with an ad as an argument 
     and returns land area or None if there is no land area in the block."""
     template_land_area = r'<li><img src="https://www\.nepremicnine\.net/images/zemljisce\.svg".*?>(.*?) m<sup>2</sup></li>'
     land_area = re.search(template_land_area, block)
@@ -149,7 +149,7 @@ def get_land_area_from_(block):
 
 
 def get_city_from_(block, region):
-    """The function takes a block with an ad as an argument 
+    """This function takes a block with an ad as an argument 
     and returns city or None if there is no city in the block."""
     if region == 'ljubljana mesto':
         return 'ljubljana'
@@ -164,7 +164,7 @@ def get_city_from_(block, region):
 
 
 def get_living_area_from_(block):
-    """The function takes a block with an ad as an argument 
+    """This function takes a block with an ad as an argument 
     and returns living area or None if there is no living area in the block."""
     template_living_area = r'<li><img src="https://www\.nepremicnine\.net/images/velikost\.svg".*?>(.*?) m<sup>2</sup></li>'
     living_area = re.search(template_living_area, block)
@@ -174,7 +174,7 @@ def get_living_area_from_(block):
 
 
 def get_building_year_from_(block):
-    """The function takes a block with an ad as an argument 
+    """This function takes a block with an ad as an argument 
     and returns building year or None if there is no building year in the block."""
     template_building_year = r'<li><img src="https://www\.nepremicnine\.net/images/leto\.svg".*?>(.*?)</li>'
     building_year = re.search(template_building_year, block)
@@ -183,7 +183,7 @@ def get_building_year_from_(block):
 
 
 def get_floor_from_(block):
-    """The function takes a block with an ad as an argument 
+    """This function takes a block with an ad as an argument 
     and returns floor or None if there is no floor in the block."""
     template_floor = r'<li><img src="https://www\.nepremicnine\.net/images/nadstropje\.svg".*?>(.*?)</li>'
     floor = re.search(template_floor, block)
@@ -192,7 +192,7 @@ def get_floor_from_(block):
 
 
 def get_price_from_(block, living_area):    
-    """The function takes a block with an ad and living area as an argument 
+    """This function takes a block with an ad and living area as an argument 
     and returns price or None if there is no price in the block."""
     template_price = r'<h6 class="">(.*?)</h6>'
     price = re.search(template_price, block)
@@ -213,7 +213,7 @@ def get_price_from_(block, living_area):
 
 
 def get_seller_from_(block):
-    """The function takes a block with an ad as an argument 
+    """This function takes a block with an ad as an argument 
     and returns seller or None if there is no seller in the block."""
     template_seller = r'<meta itemprop="name" content="(.*?)" />'
     seller = re.search(template_seller, block)

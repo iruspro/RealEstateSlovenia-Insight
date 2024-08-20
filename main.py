@@ -37,13 +37,13 @@ def main():
         real_estate_types=REAL_ESTATE_TYPES, 
         regions=REGIONS, 
         main_page=MAIN_PAGE)    
-    pages = processor.get_pages(url_bases, PAGES_DIRECTORY)    
+    pages = processor.get_pages(url_bases, PAGES_DIRECTORY)  
     processor.download_pages(pages, PAGES_DIRECTORY)
-
+    
     ads = processor.get_ads_from_pages(pages, PAGES_DIRECTORY)
     true_ads = processor.get_true_ads_from_ads(ads, DATA_DIRECTORY, FAKE_ADS_FILENAME)
     processor.write_ads_to_csv(true_ads, DATA_DIRECTORY, DATA_FILENAME)
 
-
+    
 if __name__ == '__main__':
     main()
