@@ -19,3 +19,6 @@ Z uporabo knjižnice Pandas v programskem jeziku Python znotraj okolja Jupyter N
 11. Uživajte v analizi
 
 Če želite znova prenesti podatke s spletne strani, izbrišite vsebino mape pages: `rm -rf pages/*` in zaženite program: `python3 main.py`
+
+## Access problem
+Če med zbiranjem podatkov s spletnega mesta naletite na napako: `access blocked`, preskočite korak 8 in uporabite že pripravljene podatke z dne 22.08.2024.
